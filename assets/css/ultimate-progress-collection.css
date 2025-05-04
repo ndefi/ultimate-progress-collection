@@ -1,0 +1,696 @@
+:root{
+    --background:#fff;
+    --text:#1f2937;
+    --surface:#f3f4f6;
+    --border:#e5e7eb
+}
+.theme-indigo{
+    --primary:#4f46e5;
+    --primary-light:#818cf8;
+    --primary-rgb:79,70,229
+}
+.theme-emerald{
+    --primary:#059669;
+    --primary-light:#34d399;
+    --primary-rgb:5,150,105
+}
+.theme-rose{
+    --primary:#e11d48;
+    --primary-light:#fb7185;
+    --primary-rgb:225,29,72
+}
+.theme-amber{
+    --primary:#d97706;
+    --primary-light:#fbbf24;
+    --primary-rgb:217,119,6
+}
+.theme-violet{
+    --primary:#7c3aed;
+    --primary-light:#a78bfa;
+    --primary-rgb:124,58,237
+}
+.theme-cyan{
+    --primary:#0891b2;
+    --primary-light:#22d3ee;
+    --primary-rgb:8,145,178
+}
+.theme-fuchsia{
+    --primary:#c026d3;
+    --primary-light:#e879f9;
+    --primary-rgb:192,38,211
+}
+.theme-lime{
+    --primary:#65a30d;
+    --primary-light:#bef264;
+    --primary-rgb:101,163,13
+}
+.theme-sky{
+    --primary:#0284c7;
+    --primary-light:#38bdf8;
+    --primary-rgb:2,132,199
+}
+.theme-orange{
+    --primary:#ea580c;
+    --primary-light:#fb923c;
+    --primary-rgb:234,88,12
+}
+[data-theme=dark]{
+    --background:#020617;
+    --text:#f3f4f6;
+    --surface:#0f172a;
+    --border:#4b5563
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    transition:all .3s ease
+}
+body{
+    font-family:system-ui,-apple-system,sans-serif;
+    background:var(--background);
+    color:var(--text);
+    padding:2rem
+}
+.container{
+    max-width:1200px;
+    margin:0 auto
+}
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:2rem;
+    flex-wrap:wrap;
+    gap:1rem
+}
+.controls{
+    display:flex;
+    gap:1rem;
+    align-items:center
+}
+.button{
+    background:var(--surface);
+    border:1px solid var(--border);
+    color:var(--text);
+    padding:.5rem 1rem;
+    border-radius:.5rem;
+    cursor:pointer
+}
+.button:hover{
+    background:var(--border)
+}
+.color-picker{
+    display:flex;
+    gap:.5rem;
+    padding:.5rem;
+    background:var(--surface);
+    border-radius:.5rem;
+    border:1px solid var(--border)
+}
+.color-option{
+    width:24px;
+    height:24px;
+    border-radius:50%;
+    cursor:pointer;
+    border:2px solid var(--border)
+}
+.section{
+    background:var(--surface);
+    padding:2rem;
+    border-radius:1rem;
+    margin-bottom:2rem;
+    border:1px solid var(--border)
+}
+h2{
+    margin-bottom:1.5rem;
+    color:var(--primary)
+}
+.progress-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:2rem
+}
+.basic-progress,.striped-progress,.animated-progress,.gradient-progress,.glowing-progress{
+    height:8px;
+    background:var(--border);
+    border-radius:4px;
+    overflow:hidden
+}
+.basic-progress .bar,.striped-progress .bar,.animated-progress .bar,.gradient-progress .bar,.glowing-progress .bar{
+    height:100%;
+    width:0%;
+    transition:width 1s ease
+}
+.basic-progress .bar{
+    background:var(--primary)
+}
+.striped-progress .bar{
+    background:linear-gradient(45deg,var(--primary) 25%,var(--primary-light) 25%,var(--primary-light) 50%,var(--primary) 50%,var(--primary) 75%,var(--primary-light) 75%);
+    background-size:20px 20px;
+    animation:stripe-animation 1s linear infinite
+}
+@keyframes stripe-animation{
+    0%{
+        background-position:0 0
+    }
+    100%{
+        background-position:20px 0
+    }
+}
+.animated-progress .bar{
+    background:var(--primary);
+    position:relative
+}
+.animated-progress .bar::after{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);
+    animation:shine 1.5s infinite
+}
+@keyframes shine{
+    0%{
+        transform:translateX(-100%)
+    }
+    100%{
+        transform:translateX(100%)
+    }
+}
+.gradient-progress .bar{
+    background:linear-gradient(90deg,var(--primary),var(--primary-light))
+}
+.glowing-progress .bar{
+    background:var(--primary);
+    box-shadow:0 0 10px var(--primary),0 0 20px var(--primary)
+}
+.circular-progress{
+    position:relative;
+    width:120px;
+    height:120px;
+    margin:0 auto
+}
+.circular-progress svg{
+    transform:rotate(-90deg)
+}
+.circular-progress circle{
+    fill:none;
+    stroke-width:8;
+    stroke-linecap:round
+}
+.circular-progress .bg{
+    stroke:var(--border)
+}
+.circular-progress .progress{
+    stroke:var(--primary);
+    stroke-dasharray:289.027px;
+    stroke-dashoffset:289.027px;
+    transition:stroke-dashoffset 1s ease
+}
+.circular-progress .label{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-size:1.25rem;
+    font-weight:600;
+    color:var(--text)
+}
+
+.example-section{
+    padding:2rem;
+    background:var(--surface);
+    border-radius:1rem;
+    margin-bottom:2rem;
+    border:1px solid var(--border)
+}
+.example-title{
+    color:var(--primary);
+    font-size:1.25rem;
+    font-weight:600;
+    margin-bottom:1rem
+}
+.example-description{
+    color:var(--text);
+    margin-bottom:1.5rem;
+    opacity:.8
+}
+.code-preview{
+    background:var(--surface);
+    padding:1rem;
+    border-radius:.5rem;
+    font-family:monospace;
+    color:var(--text);
+    margin-top:1rem;
+    white-space:pre-wrap
+}
+.progress-selector{
+    margin-bottom:1.5rem
+}
+.progress-selector label{
+    font-weight:600;
+    margin-right:1rem
+}
+.progress-selector select{
+    padding:.5rem;
+    border-radius:.5rem;
+    border:1px solid var(--border);
+    background:var(--surface);
+    color:var(--text)
+}
+@media (max-width:768px){
+    .header{
+        flex-direction:column;
+        align-items:flex-start
+    }
+    .controls{
+        flex-wrap:wrap
+    }
+    .progress-grid{
+        grid-template-columns:repeat(auto-fit,minmax(150px,1fr))
+    }
+}
+
+
+
+/* Segmented Progress */
+.segmented-progress {
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    gap: 2px;
+}
+
+.segmented-progress .segment {
+    flex: 1;
+    background: var(--primary);
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+}
+
+
+/* Bubble Progress */
+.bubble-progress {
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: visible;
+    position: relative;
+}
+
+.bubble-progress .bar {
+    height: 100%;
+    background: var(--primary);
+    position: relative;
+    transition: width 1s ease;
+}
+
+.bubble-progress .bar::after {
+    content: attr(data-progress) '%';
+    position: absolute;
+    right: 0;
+    top: -30px;
+    background: var(--primary);
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: white;
+    font-size: 12px;
+}
+
+.bubble-progress .bar::before {
+    content: '';
+    position: absolute;
+    right: 8px;
+    top: -10px;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid var(--primary);
+}
+
+/* Stepped Progress */
+.stepped-progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.stepped-progress .step {
+    flex: 1;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.stepped-progress .step.active {
+    background: var(--primary);
+}
+
+
+/* Add these styles to your existing styles.css file */
+
+/* Neon Progress */
+.neon-progress {
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.neon-progress .bar {
+    height: 100%;
+    background: var(--primary);
+    position: relative;
+    transition: width 1s ease;
+    box-shadow: 0 0 10px var(--primary),
+                0 0 20px var(--primary),
+                0 0 30px var(--primary);
+    animation: neonPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes neonPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+/* Particle Progress */
+.particle-progress {
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.particle-progress .bar {
+    height: 100%;
+    background: var(--primary);
+    position: relative;
+    transition: width 1s ease;
+}
+
+.particle-progress .particles {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 30px;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 2px,
+        rgba(255, 255, 255, 0.5) 2px,
+        rgba(255, 255, 255, 0.5) 4px
+    );
+    animation: particleMove 1s linear infinite;
+}
+
+@keyframes particleMove {
+    0% { transform: translateX(30px); }
+    100% { transform: translateX(-30px); }
+}
+
+/* Holographic Progress */
+.holographic-progress {
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.holographic-progress .bar {
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        var(--primary),
+        var(--primary-light),
+        var(--primary),
+        var(--primary-light)
+    );
+    background-size: 200% 200%;
+    position: relative;
+    transition: width 1s ease;
+    animation: holographicShift 2s linear infinite;
+}
+
+@keyframes holographicShift {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 200% 200%; }
+}
+
+/* Cyber Progress */
+.cyber-progress {
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.cyber-progress .bar {
+    height: 100%;
+    background: var(--primary);
+    position: relative;
+    transition: width 1s ease;
+}
+
+.cyber-progress .glitch-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    animation: glitch 0.5s linear infinite;
+}
+
+@keyframes glitch {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+/* Continue from your existing CSS... */
+
+/* Scanning Progress */
+.scanning-progress {
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.scanning-progress .bar {
+    height: 100%;
+    background: var(--primary);
+    position: relative;
+    transition: width 1s ease;
+}
+
+.scanning-progress .scanner {
+    position: absolute;
+    top: 0;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.8),
+        transparent
+    );
+    animation: scan 1.5s linear infinite;
+}
+
+@keyframes scan {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(400%); }
+}
+
+/* Matrix Progress */
+.matrix-progress {
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.matrix-progress .bar {
+    height: 100%;
+    background: var(--primary);
+    position: relative;
+    transition: width 1s ease;
+}
+
+.matrix-progress .matrix-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 5px,
+        rgba(0, 255, 0, 0.2) 5px,
+        rgba(0, 255, 0, 0.2) 10px
+    );
+    animation: matrixFlow 1s linear infinite;
+}
+
+@keyframes matrixFlow {
+    0% { background-position: 0 0; }
+    100% { background-position: 20px 0; }
+}
+
+/* Energy Progress */
+.energy-progress {
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.energy-progress .bar {
+    height: 100%;
+    background: var(--primary);
+    position: relative;
+    transition: width 1s ease;
+}
+
+.energy-progress .energy-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.8) 1px,
+        transparent 1px
+    ) 0 0/4px 4px;
+    animation: energyFlow 0.5s linear infinite;
+}
+
+@keyframes energyFlow {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(4px); }
+}
+
+/* Quantum Progress */
+.quantum-progress {
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.quantum-progress .bar {
+    height: 100%;
+    background: var(--primary);
+    position: relative;
+    transition: width 1s ease;
+    filter: blur(0.5px);
+}
+
+.quantum-progress .quantum-bits {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 50%,
+        rgba(255, 255, 255, 0.5) 50%
+    );
+    background-size: 4px 4px;
+    animation: quantumFlicker 0.2s linear infinite;
+}
+
+@keyframes quantumFlicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Hologram Progress */
+.hologram-progress {
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.hologram-progress .bar {
+    height: 100%;
+    background: var(--primary);
+    position: relative;
+    transition: width 1s ease;
+}
+
+.hologram-progress .hologram-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    animation: hologramShift 2s linear infinite;
+}
+
+@keyframes hologramShift {
+    0% { transform: translateX(-100%) skewX(-45deg); }
+    100% { transform: translateX(200%) skewX(-45deg); }
+}
+
+/* Binary Progress */
+.binary-progress {
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.binary-progress .bar {
+    height: 100%;
+    background: var(--primary);
+    position: relative;
+    transition: width 1s ease;
+}
+
+.binary-progress .binary-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+        90deg,
+        transparent 50%,
+        rgba(255, 255, 255, 0.3) 50%
+    );
+    background-size: 6px 100%;
+    animation: binaryFlow 1s linear infinite;
+}
+
+@keyframes binaryFlow {
+    0% { background-position: 0 0; }
+    100% { background-position: 6px 0; }
+}

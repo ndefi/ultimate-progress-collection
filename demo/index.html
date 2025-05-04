@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Progress Collection - Demo</title>
+    <link rel="stylesheet" href="../assets/css/ultimate-progress-collection.css">
+    <link rel="stylesheet" href="../assets/css/demo-styles.css">
+    <!-- Prism.js CSS for Syntax Highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+   
+   <style>
+        .category-nav {
+        margin: 20px 0;
+        text-align: center;
+    }
+    .category-btn {
+        padding: 10px 20px;
+        margin: 5px;
+        border: none;
+        background-color: #4f46e5;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+    .category-btn:hover {
+        background-color: #3b3abf;
+    }
+    .category-btn.active {
+        background-color: #2a2a8e;
+    }
+    .section {
+        display: none;
+    }
+    .section.active {
+        display: block;
+    }
+   </style>
+
+
+</head>
+<body class="theme-indigo">
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Ultimate Progress Collection</h1>
+            <div class="controls">
+                <button class="button" onclick="toggleTheme()">Toggle Dark Mode</button>
+                <button class="button" onclick="toggleCodePreviews()">Hide Code Previews</button>
+                <div class="color-picker">
+                    <div class="color-option" style="background: #4f46e5" onclick="setTheme('indigo')"></div>
+                    <div class="color-option" style="background: #059669" onclick="setTheme('emerald')"></div>
+                    <div class="color-option" style="background: #e11d48" onclick="setTheme('rose')"></div>
+                    <div class="color-option" style="background: #d97706" onclick="setTheme('amber')"></div>
+                    <div class="color-option" style="background: #7c3aed" onclick="setTheme('violet')"></div>
+                    <div class="color-option" style="background: #0891b2" onclick="setTheme('cyan')"></div>
+                    <div class="color-option" style="background: #c026d3" onclick="setTheme('fuchsia')"></div>
+                    <div class="color-option" style="background: #65a30d" onclick="setTheme('lime')"></div>
+                    <div class="color-option" style="background: #0284c7" onclick="setTheme('sky')"></div>
+                    <div class="color-option" style="background: #ea580c" onclick="setTheme('orange')"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Navigation -->
+        <div class="category-nav">
+            <button class="category-btn" data-category="basic">Basic</button>
+            <button class="category-btn" data-category="striped">Striped</button>
+            <button class="category-btn" data-category="animated">Animated</button>
+            <button class="category-btn" data-category="gradient">Gradient</button>
+            <button class="category-btn" data-category="glowing">Glowing</button>
+            <button class="category-btn" data-category="circular">Circular</button>
+            <button class="category-btn" data-category="segmented">Segmented</button>
+            <button class="category-btn" data-category="bubble">Bubble</button>
+            <button class="category-btn" data-category="stepped">Stepped</button>
+            <button class="category-btn" data-category="neon">Neon</button>
+            <button class="category-btn" data-category="particle">Particle</button>
+            <button class="category-btn" data-category="holographic">Holographic</button>
+            <button class="category-btn" data-category="cyber">Cyber</button>
+            <button class="category-btn" data-category="scanning">Scanning</button>
+            <button class="category-btn" data-category="matrix">Matrix</button>
+            <button class="category-btn" data-category="energy">Energy</button>
+            <button class="category-btn" data-category="quantum">Quantum</button>
+            <button class="category-btn" data-category="hologram">Hologram</button>
+            <button class="category-btn" data-category="binary">Binary</button>
+            <button class="category-btn" data-category="examples">Examples</button>
+        </div>
+
+        <!-- Basic Progress -->
+        <section class="section" data-category="basic">
+            <h2>Basic Progress</h2>
+            <div class="progress-grid">
+                <div class="basic-progress">
+                    <div class="bar" data-progress="25"></div>
+                </div>
+                <div class="basic-progress">
+                    <div class="bar" data-progress="45"></div>
+                </div>
+                <div class="basic-progress">
+                    <div class="bar" data-progress="75"></div>
+                </div>
+            </div>
+            <div class="code-preview">
+                <pre><code class="language-html">
+            &lt;div class="basic-progress"&gt;
+            &lt;div class="bar" data-progress="25"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            
+                </code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy Code</button>
+            </div>
+        </section>
+
+        <!-- Striped Progress -->
+        <section class="section" data-category="striped">
+            <h2>Striped Progress</h2>
+            <div class="progress-grid">
+                <div class="striped-progress">
+                    <div class="bar" data-progress="25"></div>
+                </div>
+                <div class="striped-progress">
+                    <div class="bar" data-progress="45"></div>
+                </div>
+                <div class="striped-progress">
+                    <div class="bar" data-progress="75"></div>
+                </div>
+            </div>
+            <div class="code-preview">
+                <pre><code class="language-html">
+            &lt;div class="striped-progress"&gt;
+            &lt;div class="bar" data-progress="25"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+                </code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy Code</button>
+            </div>
+        </section>
+
+        <!-- Animated Progress -->
+        <section class="section" data-category="animated">
+            <h2>Animated Progress</h2>
+            <div class="progress-grid">
+                <div class="animated-progress">
+                    <div class="bar" data-progress="25"></div>
+                </div>
+                <div class="animated-progress">
+                    <div class="bar" data-progress="45"></div>
+                </div>
+                <div class="animated-progress">
+                    <div class="bar" data-progress="75"></div>
+                </div>
+            </div>
+            <div class="code-preview">
+                <pre><code class="language-html">
+            &lt;div class="animated-progress"&gt;
+            &lt;div class="bar" data-progress="25"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+                </code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy Code</button>
+            </div>
+        </section>
+
+        <!-- Gradient Progress -->
+        <section class="section" data-category="gradient">
+            <h2>Gradient Progress</h2>
+            <div class="progress-grid">
+                <div class="gradient-progress">
+                    <div class="bar" data-progress="25"></div>
+                </div>
+                <div class="gradient-progress">
+                    <div class="bar" data-progress="45"></div>
+                </div>
+                <div class="gradient-progress">
+                    <div class="bar" data-progress="75"></div>
+                </div>
+            </div>
+            <div class="code-preview">
+                <pre><code class="language-html">
+            &lt;div class="gradient-progress"&gt;
+            &lt;div class="bar" data-progress="25"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+                </code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy Code</button>
+            </div>
+        </section>
+
+        <!-- Glowing Progress -->
+        <section class="section" data-category="glowing">
+            <h2>Glowing Progress</h2>
+            <div class="progress-grid">
+                <div class="glowing-progress">
+                    <div class="bar" data-progress="25"></div>
+                </div>
+                <div class="glowing-progress">
+                    <div class="bar" data-progress="45"></div>
+                </div>
+                <div class="glowing-progress">
+                    <div class="bar" data-progress="75"></div>
+                </div>
+            </div>
+            <div class="code-preview">
+                <pre><code class="language-html">
+            &lt;div class="glowing-progress"&gt;
+            &lt;div class="bar" data-progress="25"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+                </code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy Code</button>
+            </div>
+        </section>
+
+        <!-- Circular Progress -->
+        <section class="section" data-category="circular">
+            <h2>Circular Progress</h2>
+            <div class="progress-grid">
+                <div class="circular-progress">
+                    <svg width="120" height="120">
+                        <circle class="bg" cx="60" cy="60" r="46"></circle>
+                        <circle class="progress" cx="60" cy="60" r="46" data-progress="25"></circle>
+                    </svg>
+                    <div class="label">25%</div>
+                </div>
+                <div class="circular-progress">
+                    <svg width="120" height="120">
+                        <circle class="bg" cx="60" cy="60" r="46"></circle>
+                        <circle class="progress" cx="60" cy="60" r="46" data-progress="45"></circle>
+                    </svg>
+                    <div class="label">45%</div>
+                </div>
+                <div class="circular-progress">
+                    <svg width="120" height="120">
+                        <circle class="bg" cx="60" cy="60" r="46"></circle>
+                        <circle class="progress" cx="60" cy="60" r="46" data-progress="75"></circle>
+                    </svg>
+                    <div class="label">75%</div>
+                </div>
+            </div>
+            <div class="code-preview">
+                <pre><code class="language-html">
+            &lt;div class="circular-progress"&gt;
+            &lt;svg width="120" height="120"&gt;
+            &lt;circle class="bg" cx="60" cy="60" r="46"&gt;&lt;/circle&gt;
+            &lt;circle class="progress" cx="60" cy="60" r="46" data-progress="25"&gt;&lt;/circle&gt;
+            &lt;/svg&gt;
+            &lt;div class="label"&gt;35%&lt;/div&gt;
+            &lt;/div&gt;
+                </code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy Code</button>
+            </div>
+        </section>
+
+        <!-- Segmented Progress -->
+        <section class="section" data-category="segmented">
+            <h2>Segmented Progress</h2>
+            <div class="progress-grid">
+                <div class="segmented-progress" data-segments="5" data-progress="25">
+                    <div class="segment"></div>
+                    <div class="segment"></div>
+                    <div class="segment"></div>
+                    <div class="segment"></div>
+                    <div class="segment"></div>
+                </div>
+                <div class="segmented-progress" data-segments="5" data-progress="45">
+                    <div class="segment"></div>
+                    <div class="segment"></div>
+                    <div class="segment"></div>
+                    <div class="segment"></div>
+                    <div class="segment"></div>
+                </div>
+                <div class="segmented-progress" data-segments="5" data-progress="75">
+                    <div class="segment"></div>
+                    <div class="segment"></div>
+                    <div class="segment"></div>
+                    <div class="segment"></div>
+                    <div class="segment"></div>
+                </div>
+            </div>
+            <div class="code-preview">
+                <pre><code class="language-html">
+            &lt;div class="segmented-progress" data-segments="5" data-progress="25"&gt;
+            &lt;div class="segment"&gt;&lt;/div&gt;
+            &lt;div class="segment"&gt;&lt;/div&gt;
+            &lt;div class="segment"&gt;&lt;/div&gt;
+            &lt;div class="segment"&gt;&lt;/div&gt;
+            &lt;div class="segment"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            </code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy Code</button>
+            </div>
+        </section>
+
+        <!-- Bubble Progress -->
+        <section class="section" data-category="bubble">
+            <h2>Bubble Progress</h2>
+            <div class="progress-grid">
+                <div class="bubble-progress">
+                    <div class="bar" data-progress="25"></div>
+                </div>
+                <div class="bubble-progress">
+                    <div class="bar" data-progress="45"></div>
+                </div>
+                <div class="bubble-progress">
+                    <div class="bar" data-progress="75"></div>
+                </div>
+            </div>
+            <div class="code-preview">
+                <pre><code class="language-html">
+            &lt;div class="bubble-progress"&gt;
+            &lt;div class="bar" data-progress="25"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            </code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy Code</button>
+            </div>
+        </section>
+
+        <!-- Stepped Progress -->
+        <section class="section" data-category="stepped">
+            <h2>Stepped Progress</h2>
+            <div class="progress-grid">
+                <div class="stepped-progress" data-progress="25">
+                    <div class="step"></div>
+                    <div class="step"></div>
+                    <div class="step"></div>
+                    <div class="step"></div>
+                    <div class="step"></div>
+                </div>
+                <div class="stepped-progress" data-progress="45">
+                    <div class="step"></div>
+                    <div class="step"></div>
+                    <div class="step"></div>
+                    <div class="step"></div>
+                    <div class="step"></div>
+                </div>
+                <div class="stepped-progress" data-progress="75">
+                    <div class="step"></div>
+                    <div class="step"></div>
+                    <div class="step"></div>
+                    <div class="step"></div>
+                    <div class="step"></div>
+                </div>
+            </div>
+            <div class="code-preview">
+                <pre><code class="language-html">
+            &lt;div class="stepped-progress" data-progress="25"&gt;
+            &lt;div class="step"&gt;&lt;/div&gt;
+            &lt;div class="step"&gt;&lt;/div&gt;
+            &lt;div class="step"&gt;&lt;/div&gt;
+            &lt;div class="step"&gt;&lt;/div&gt;
+            &lt;div class="step"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            </code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy Code</button>
+            </div>
+        </section>
+
+        <!-- Neon Progress -->
+        <section class="section" data-category="neon">
+            <h2>Neon Progress</h2>
+            <div class="progress-grid">
+                <div class="neon-progress">
+                    <div class="bar" data-progress="25"></div>
+                </div>
+                <div class="neon-progress">
+                    <div class="bar" data-progress="45"></div>
+                </div>
+                <div class="neon-progress">
+                    <div class="bar" data-progress="75"></div>
+                </div>
+            </div>
+            <div class="code-preview">
+                <pre><code class="language-html">
+        &lt;div class="neon-progress"&gt;
+            &lt;div class="bar" data-progress="25"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+                </code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy Code</button>
+            </div>
+        </section>
+
+        <!-- Particle Progress -->
+        <section class="section" data-category="particle">
+            <h2>Particle Progress</h2>
+            <div class="progress-grid">
+                <div class="particle-progress">
+                    <div class="bar" data-progress="25">
+                        <div class="particles"></div>
+                    </div>
+                </div>
+                <div class="particle-progress">
+                    <div class="bar" data-progress="45">
+                        <div class="particles"></div>
+                    </div>
+                </div>
+                <div class="particle-progress">
+                    <div class="bar" data-progress="75">
+                        <div class="particles"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="code-preview">
+                <pre><code class="language-html">
+        &lt;div class="particle-progress"&gt;
+            &lt;div class="bar" data-progress="25"&gt;
+                &lt;div class="particles"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+                </code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy Code</button>
+            </div>
+        </section>
+
+        <!-- Holographic Progress -->
+        <section class="section" data-category="holographic">
+            <h2>Holographic Progress</h2>
+            <div class="progress-grid">
+                <div class="holographic-progress">
+                    <div class="bar" data-progress="25"></div>
+                </div>
+                <div class="holographic-progress">
+                    <div class="bar" data-progress="45"></div>
+                </div>
+                <div class="holographic-progress">
+                    <div class="bar" data-progress="75"></div>
+                </div>
+            </div>
+            <div class="code-preview">
+                <pre><code class="language-html">
+        &lt;div class="holographic-progress"&gt;
+            &lt;div class="bar" data-progress="25"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+                </code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy Code</button>
+            </div>
+        </section>
+
+        <!-- Cyber Progress -->
+        <section class="section" data-category="cyber">
+            <h2>Cyber Progress</h2>
+            <div class="progress-grid">
+                <div class="cyber-progress">
+                    <div class="bar" data-progress="25">
+                        <div class="glitch-line"></div>
+                    </div>
+                </div>
+                <div class="cyber-progress">
+                    <div class="bar" data-progress="45">
+                        <div class="glitch-line"></div>
+                    </div>
+                </div>
+                <div class="cyber-progress">
+                    <div class="bar" data-progress="75">
+                        <div class="glitch-line"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="code-preview">
+                <pre><code class="language-html">
+        &lt;div class="cyber-progress"&gt;
+            &lt;div class="bar" data-progress="25"&gt;
+                &lt;div class="glitch-line"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+                </code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy Code</button>
+            </div>
+        </section>
+
+        <!-- Scanning Progress -->
+        <section class="section" data-category="scanning">
+            <h2>Scanning Progress</h2>
+            <div class="progress-grid">
+                <div class="scanning-progress">
+                    <div class="bar" data-progress="25">
+                        <div class="scanner"></div>
+                    </div>
+                </div>
+                <div class="scanning-progress">
+                    <div class="bar" data-progress="45">
+                        <div class="scanner"></div>
+                    </div>
+                </div>
+                <div class="scanning-progress">
+                    <div class="bar" data-progress="75">
+                        <div class="scanner"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="code-preview">
+                <pre><code class="language-html">
+        &lt;div class="scanning-progress"&gt;
+            &lt;div class="bar" data-progress="25"&gt;
+                &lt;div class="scanner"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+                </code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy Code</button>
+            </div>
+        </section>
+
+        <!-- Matrix Progress -->
+        <section class="section" data-category="matrix">
+            <h2>Matrix Progress</h2>
+            <div class="progress-grid">
+                <div class="matrix-progress">
+                    <div class="bar" data-progress="25"></div>
+                    <div class="matrix-overlay"></div>
+                </div>
+                <div class="matrix-progress">
+                    <div class="bar" data-progress="45"></div>
+                    <div class="matrix-overlay"></div>
+                </div>
+                <div class="matrix-progress">
+                    <div class="bar" data-progress="75"></div>
+                    <div class="matrix-overlay"></div>
+                </div>
+            </div>
+            <div class="code-preview">
+                <pre><code class="language-html">
+        &lt;div class="matrix-progress"&gt;
+            &lt;div class="bar" data-progress="25"&gt;&lt;/div&gt;
+            &lt;div class="matrix-overlay"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+                </code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy Code</button>
+            </div>
+        </section>
+
+        <!-- Energy Progress -->
+        <section class="section" data-category="energy">
+            <h2>Energy Progress</h2>
+            <div class="progress-grid">
+                <div class="energy-progress">
+                    <div class="bar" data-progress="25">
+                        <div class="energy-particles"></div>
+                    </div>
+                </div>
+                <div class="energy-progress">
+                    <div class="bar" data-progress="45">
+                        <div class="energy-particles"></div>
+                    </div>
+                </div>
+                <div class="energy-progress">
+                    <div class="bar" data-progress="75">
+                        <div class="energy-particles"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="code-preview">
+                <pre><code class="language-html">
+        &lt;div class="energy-progress"&gt;
+            &lt;div class="bar" data-progress="25"&gt;
+                &lt;div class="energy-particles"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+                </code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy Code</button>
+            </div>
+        </section>
+
+        <!-- Quantum Progress -->
+        <section class="section" data-category="quantum">
+            <h2>Quantum Progress</h2>
+            <div class="progress-grid">
+                <div class="quantum-progress">
+                    <div class="bar" data-progress="25">
+                        <div class="quantum-bits"></div>
+                    </div>
+                </div>
+                <div class="quantum-progress">
+                    <div class="bar" data-progress="45">
+                        <div class="quantum-bits"></div>
+                    </div>
+                </div>
+                <div class="quantum-progress">
+                    <div class="bar" data-progress="75">
+                        <div class="quantum-bits"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="code-preview">
+                <pre><code class="language-html">
+        &lt;div class="quantum-progress"&gt;
+            &lt;div class="bar" data-progress="25"&gt;
+                &lt;div class="quantum-bits"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+                </code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy Code</button>
+            </div>
+        </section>
+
+        <!-- Hologram Progress -->
+        <section class="section" data-category="hologram">
+            <h2>Hologram Progress</h2>
+            <div class="progress-grid">
+                <div class="hologram-progress">
+                    <div class="bar" data-progress="25">
+                        <div class="hologram-effect"></div>
+                    </div>
+                </div>
+                <div class="hologram-progress">
+                    <div class="bar" data-progress="45">
+                        <div class="hologram-effect"></div>
+                    </div>
+                </div>
+                <div class="hologram-progress">
+                    <div class="bar" data-progress="75">
+                        <div class="hologram-effect"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="code-preview">
+                <pre><code class="language-html">
+        &lt;div class="hologram-progress"&gt;
+            &lt;div class="bar" data-progress="25"&gt;
+                &lt;div class="hologram-effect"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+                </code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy Code</button>
+            </div>
+        </section>
+
+        <!-- Binary Progress -->
+        <section class="section" data-category="binary">
+            <h2>Binary Progress</h2>
+            <div class="progress-grid">
+                <div class="binary-progress">
+                    <div class="bar" data-progress="25">
+                        <div class="binary-overlay"></div>
+                    </div>
+                </div>
+                <div class="binary-progress">
+                    <div class="bar" data-progress="45">
+                        <div class="binary-overlay"></div>
+                    </div>
+                </div>
+                <div class="binary-progress">
+                    <div class="bar" data-progress="75">
+                        <div class="binary-overlay"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="code-preview">
+                <pre><code class="language-html">
+        &lt;div class="binary-progress"&gt;
+            &lt;div class="bar" data-progress="25"&gt;
+                &lt;div class="binary-overlay"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+                </code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy Code</button>
+            </div>
+        </section>
+
+        <!-- Example Section -->
+        <section class="section" data-category="examples">
+            <h2>Examples</h2>
+            <div class="example-section">
+                <div class="example-title">File Upload Progress</div>
+                <div class="example-description">Simulated file upload with animated progress</div>
+                <button class="button" onclick="simulateUpload()">Start Upload</button>
+                <div class="animated-progress">
+                    <div class="bar" data-progress="0"></div>
+                </div>
+                <div class="code-preview">
+                    <pre><code class="language-javascript">
+const progress = document.querySelector('.animated-progress .bar');
+progress.style.width = `${percentage}%`;
+                    </code></pre>
+                    <button class="copy-button" onclick="copyCode(this)">Copy Code</button>
+                </div>
+            </div>
+        </section>
+
+        <footer class=" py-8 mt-12 ">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col items-center justify-center text-center">
+                    <div class="text-gray-600 dark:text-gray-300 mb-2">
+                        Ultimate Progress Collection
+                    </div>
+                    <div class="text-gray-500 dark:text-gray-400">
+                        Created by <a href="https://github.com/ndefi" target="_blank" class="hover:text-gray-700 dark:hover:text-gray-300 transition-colors">IrikaLabs</a> © 2025
+                    </div>
+                    <div class="mt-4">
+                        <a href="https://github.com/ndefi/ultimate-progress-collection" target="_blank" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors">
+                            <i class="fab fa-github text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Prism.js JavaScript for Syntax Highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <!-- main.js JavaScript for copy and toggles -->
+    <script src="../assets/js/main.js"></script>
+    <!-- script.min.js JavaScript for progress bars -->
+    <script src="../assets/js/ultimate-progress-collection.min.js"></script>
+    <script>
+        // Category toggle functionality
+        const buttons = document.querySelectorAll('.category-btn');
+        const sections = document.querySelectorAll('.section');
+
+        function showCategory(category) {
+            // Remove active class from all buttons and sections
+            buttons.forEach(btn => btn.classList.remove('active'));
+            sections.forEach(section => section.classList.remove('active'));
+
+            // Add active class to the clicked button and corresponding section
+            const activeButton = document.querySelector(`.category-btn[data-category="${category}"]`);
+            const activeSection = document.querySelector(`.section[data-category="${category}"]`);
+            if (activeButton && activeSection) {
+                activeButton.classList.add('active');
+                activeSection.classList.add('active');
+            }
+        }
+
+        // Add click event listeners to buttons
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const category = button.getAttribute('data-category');
+                showCategory(category);
+            });
+        });
+
+        // Show the first category by default
+        showCategory('basic');
+        
+    </script>
+</body>
+</html>
